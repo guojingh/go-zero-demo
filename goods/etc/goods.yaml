@@ -1,0 +1,15 @@
+Name: goods.rpc
+ListenOn: 0.0.0.0:8504
+
+# etcd 配置
+# ListenOn: 0.0.0.0:42979
+# Etcd:
+#   Hosts:
+#   - 192.168.222.134:2379
+#   Key: goods.rpc
+
+# consul 配置
+Consul:
+  Host: 192.168.222.134:8500
+  Key: goods.rpc
+
