@@ -1,0 +1,36 @@
+//api 语法版本
+syntax = "v2"
+
+info (
+	author:  "guojinghu"
+	date:    "2024-04-12"
+	desc:    "订单 api 说明"
+	email:   "1774747992@qq.com"
+	version: "1.0"
+)
+
+type (
+	OrderInfoReq {
+		OrderId int64 `json:"order_id"`
+	}
+	OrderInfoResp {
+		OrderId   int64  `json:"order_id"` // 订单id
+		GoodsName string `json:"goods_name"` // 商品名称
+	}
+)
+
+@server (
+	login:      IsLogin
+	middleware: Login // 路由中间件声明
+)
+//定义一个服务叫order-api
+service order-api {
+	//获取接口的名字叫获取订单信息
+	@doc "获取订单信息"
+	//对应的handler即controller是orderInfo
+	@handler orderInfo
+	//请求方法是post 路径是/order/order_id，参数是OrderInfoReq，返回值是OrderInfoResp
+	post /order/info (OrderInfoReq) returns (OrderInfoResp)
+//也可以连续定义多个api
+}
+

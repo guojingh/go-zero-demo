@@ -1,0 +1,10 @@
+Name: order-api
+Host: 0.0.0.0
+Port: 8888
+# 这个名字和config文件中的名字是对应的
+GoodsRpc:
+  # Etcd:
+  #   Hosts:
+  #   - 192.168.222.134:2379
+  #   Key: goods.rpc
+  Target: consul://192.168.222.134:8500/goods.rpc?wait=14s
